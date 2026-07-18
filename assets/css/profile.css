@@ -1,0 +1,135 @@
+.profile-card {
+    max-width: 760px;
+    margin: auto;
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+    background: #0C6FFF;
+    color: white;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    font-weight: 900;
+}
+
+.profile-card h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.profile-role {
+    color: #0C6FFF;
+    font-weight: 900;
+    margin-bottom: 28px;
+}
+
+.profile-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    text-align: left;
+}
+
+.profile-info div {
+    background: #f8fafc;
+    padding: 18px;
+    border-radius: 18px;
+    border: 1px solid #e5e7eb;
+}
+
+.profile-info span {
+    display: block;
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.profile-info strong {
+    color: #111827;
+    font-size: 16px;
+}
+
+.btn-back {
+    background: #0C6FFF;
+    color: #e7e8ea;
+    padding: 14px 22px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-weight: 900;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.dashboard-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-hero > div {
+    flex: 1;
+}
+@media (max-width: 700px) {
+    .profile-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+.password-form {
+    max-width: 620px;
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px 18px;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    outline: none;
+    font-size: 16px;
+}
+
+.btn-save {
+    width: 100%;
+    background: #0C6FFF;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 16px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.alert-success {
+    background: #e8fff1;
+    color: #149447;
+    padding: 14px 18px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    font-weight: 900;
+}
+
+.alert-error {
+    background: #ffe8e8;
+    color: #d80000;
+    padding: 14px 18px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    font-weight: 900;
+}

@@ -1,0 +1,394 @@
+.page-header,
+.form-card,
+.table-card {
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.05);
+}
+
+.page-header {
+    padding: 24px;
+    margin-bottom: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-header h1,
+.form-header h1 {
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+.page-header p {
+    color: #666;
+}
+
+.btn-primary,
+.search-box button {
+    background: #0C6FFF;
+    color: white;
+    border: none;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-back {
+    background: #2d3436;
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    flex: 1;
+    height: 46px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 0 14px;
+}
+
+.table-card {
+    padding: 20px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+thead {
+    background: #EAF2FF;
+}
+
+th,
+td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+
+.btn-edit,
+.btn-delete {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.btn-edit {
+    background: #EAF2FF;
+    color: #0C6FFF;
+}
+
+.btn-delete {
+    background: #ffe5e5;
+    color: #e03131;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.no-data {
+    text-align: center;
+    color: #777;
+}
+
+.form-card {
+    padding: 28px;
+    max-width: 800px;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.btn-reset {
+    background: #e9ecef;
+    color: #333;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.error-message {
+    background: #ffe3e3;
+    color: #d63031;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+}
+
+/* MODAL */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 9999;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    width: 420px;
+    background: white;
+    border-radius: 22px;
+    padding: 32px;
+    text-align: center;
+    animation: popup 0.25s ease;
+}
+
+@keyframes popup {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-icon {
+    font-size: 50px;
+    margin-bottom: 12px;
+}
+
+.modal-box h2 {
+    margin-bottom: 10px;
+}
+
+.modal-box p {
+    color: #666;
+    margin-bottom: 24px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
+
+.btn-cancel,
+.btn-confirm {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background: #e9ecef;
+    color: #333;
+}
+
+.btn-confirm {
+    background: #ff4d4f;
+    color: white;
+}
+
+/* Supplier filter box */
+.filter-box {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 14px;
+    align-items: end;
+    margin-bottom: 18px;
+    padding: 18px;
+    border-radius: 20px;
+    background: #f8fbff;
+    border: 1px solid #e5eaf2;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.filter-group label {
+    color: #475569;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.filter-group input {
+    height: 44px;
+    padding: 0 13px;
+    border: 1px solid #dbe3ef;
+    border-radius: 14px;
+    outline: none;
+    background: #ffffff;
+    color: #0f172a;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.filter-group input:focus {
+    border-color: #0c6fff;
+    box-shadow: 0 0 0 4px rgba(12, 111, 255, 0.08);
+}
+
+.filter-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-filter,
+.btn-reset {
+    height: 44px;
+    padding: 0 16px;
+    border-radius: 14px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 950;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-filter {
+    background: #0c6fff;
+    color: #ffffff;
+}
+
+.btn-reset {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+/* Table info */
+.table-info {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 14px;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.pagination a,
+.pagination-dots {
+    min-width: 42px;
+    height: 42px;
+    padding: 0 14px;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #0f172a;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 900;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e5eaf2;
+}
+
+.pagination a {
+    transition: 0.2s ease;
+}
+
+.pagination a:hover {
+    background: #eef4ff;
+    color: #0c6fff;
+}
+
+.pagination a.active {
+    background: #0c6fff;
+    color: #ffffff;
+    border-color: #0c6fff;
+    box-shadow: 0 10px 20px rgba(12, 111, 255, 0.22);
+}
+
+.pagination-dots {
+    border: none;
+    background: transparent;
+    color: #94a3b8;
+}
+
+@media (max-width: 700px) {
+    .filter-box {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-actions {
+        flex-direction: column;
+    }
+
+    .btn-filter,
+    .btn-reset {
+        width: 100%;
+    }
+}

@@ -1,0 +1,179 @@
+<?php
+include '../../includes/session_check.php';
+include '../../config/db.php';
+
+if (!isset($_GET['id'])) {
+    header("Location: order.php");
+    exit();
+}
+
+$order_id = intval($_GET['id']);
+
+$stmt = $conn->prepare("
+    SELECT o.*, s.supplier_name, e.first_name, e.last_name
+    FROM tb_order o
+    LEFT JOIN tb_supplier s ON o.supplier_id = s.supplier_id
+    LEFT JOIN tb_employee e ON o.emp_id = e.emp_id
+    WHERE o.order_id = ?
+    LIMIT 1
+");
+
+$stmt->bind_param("i", $order_id);
+$stmt->execute();
+$orderResult = $stmt->get_result();
+
+if ($orderResult->num_rows === 0) {
+    header("Location: order.php");
+    exit();
+}
+
+$order = $orderResult->fetch_assoc();
+
+$detailStmt = $conn->prepare("
+    SELECT od.*, p.product_name
+    FROM tb_order_detail od
+    LEFT JOIN tb_product p ON od.product_id = p.product_id
+    WHERE od.order_id = ?
+");
+
+$detailStmt->bind_param("i", $order_id);
+$detailStmt->execute();
+$details = $detailStmt->get_result();
+
+$total = 0;
+?>
+
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+    <meta charset="UTF-8">
+    <title>ລາຍລະອຽດສັ່ງຊື້ສິນຄ້າ</title>
+
+    <!-- <link rel="stylesheet" href="../../assets/css/dashboard.css"> -->
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/dashboard.css?v=<?= time(); ?>">
+    <link rel="stylesheet" href="../../assets/css/order.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <?php include '../../includes/admin_sidebar.php'; ?>
+
+    <main class="main-content">
+
+        <div class="detail-card">
+
+            <div class="form-header">
+
+                <h1>ລາຍລະອຽດສັ່ງຊື້ສິນຄ້າ</h1>
+
+                <div style="display:flex; gap:10px;">
+
+                    <a
+                        href="order_invoice.php?id=<?php echo $order_id; ?>"
+                        class="btn-primary"
+                    >
+                        ພິມໃບສັ່ງຊື້
+                    </a>
+
+                    <a
+                        href="order.php"
+                        class="btn-back"
+                    >
+                        ກັບຄືນ
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="info-box">
+
+                <p>
+                    <strong>ລະຫັດ:</strong>
+                    <?php echo "ORD-" . str_pad($order['order_id'], 4, "0", STR_PAD_LEFT); ?>
+                </p>
+
+                <p>
+                    <strong>ຜູ້ສະໜອງ:</strong>
+                    <?php echo htmlspecialchars($order['supplier_name']); ?>
+                </p>
+
+                <p>
+                    <strong>ພະນັກງານ:</strong>
+                    <?php echo htmlspecialchars($order['first_name'] . ' ' . $order['last_name']); ?>
+                </p>
+
+                <p>
+                    <strong>ວັນທີ:</strong>
+                    <?php echo htmlspecialchars($order['order_date']); ?>
+                </p>
+
+            </div>
+
+            <div class="table-card inside">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ສິນຄ້າ</th>
+                            <th>ຈຳນວນ</th>
+                            <th>ລາຄາ</th>
+                            <th>ລວມ</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <?php while ($row = $details->fetch_assoc()): ?>
+
+                            <?php
+                                $subTotal = $row['qty'] * $row['price'];
+                                $total += $subTotal;
+                            ?>
+
+                            <tr>
+
+                                <td>
+                                    <?php echo htmlspecialchars($row['product_name']); ?>
+                                </td>
+
+                                <td>
+                                    <?php echo htmlspecialchars($row['qty']); ?>
+                                </td>
+
+                                <td>
+                                    <?php echo number_format($row['price']); ?>
+                                </td>
+
+                                <td>
+                                    <?php echo number_format($subTotal); ?>
+                                </td>
+
+                            </tr>
+
+                        <?php endwhile; ?>
+
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <th colspan="3">ລວມທັງໝົດ</th>
+                            <th><?php echo number_format($total); ?></th>
+                        </tr>
+                    </tfoot>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

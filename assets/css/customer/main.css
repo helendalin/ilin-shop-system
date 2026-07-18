@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Phetsarath OT';
+    src: url('/ilin-shop-system/assets/fonts/PhetsarathOT.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Phetsarath OT', Arial, sans-serif;
+}
+
+body {
+    background: #F5F7FB;
+    color: #222;
+}

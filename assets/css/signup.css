@@ -1,0 +1,122 @@
+@font-face {
+    font-family: 'Phetsarath OT';
+    src: url('/ilin-shop-system/assets/fonts/PhetsarathOT.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Phetsarath OT', Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #F5F7FB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.signup-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.signup-box {
+    width: 100%;
+    max-width: 520px;
+    background: white;
+    padding: 40px;
+    border-radius: 28px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+}
+
+.signup-box h2 {
+    font-size: 34px;
+    color: #0C6FFF;
+    margin-bottom: 8px;
+}
+
+.signup-box p {
+    color: #777;
+    margin-bottom: 28px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.signup-box input,
+.signup-box select {
+    width: 100%;
+    padding: 15px 18px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    outline: none;
+    font-size: 15px;
+    transition: 0.2s;
+    background: white;
+}
+
+.signup-box input:focus,
+.signup-box select:focus {
+    border-color: #0C6FFF;
+    box-shadow: 0 0 0 4px rgba(12,111,255,0.1);
+}
+
+.signup-box button {
+    width: 100%;
+    border: none;
+    background: #0C6FFF;
+    color: white;
+    padding: 16px;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 8px;
+}
+
+.signup-box button:hover {
+    background: #0057d8;
+}
+
+.login-link {
+    margin-top: 24px;
+    text-align: center;
+    color: #666;
+}
+
+.login-link a {
+    color: #0C6FFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.error-message {
+    background: #ffe5e5;
+    color: #d63031;
+    padding: 14px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+@media (max-width: 700px) {
+
+    .signup-box {
+        padding: 28px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+}

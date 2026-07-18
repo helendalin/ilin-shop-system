@@ -1,0 +1,225 @@
+.page-header-card {
+    background: #fff;
+    border-radius: 28px;
+    padding: 32px;
+    margin-bottom: 28px;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
+}
+
+.page-header-card h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.page-header-card p {
+    color: #6b7280;
+}
+
+.table-card {
+    background: #fff;
+    border-radius: 28px;
+    padding: 28px;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    background: #eef5ff;
+    color: #111827;
+    padding: 16px;
+    text-align: left;
+    font-weight: 900;
+}
+
+.admin-table td {
+    padding: 16px;
+    border-bottom: 1px solid #edf0f5;
+    color: #374151;
+    font-weight: 700;
+}
+
+.no-data {
+    text-align: center;
+    color: #999;
+    padding: 30px;
+}
+
+.search-box {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 16px 20px;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-box button {
+    width: 100px;
+    border: none;
+    border-radius: 16px;
+    background: #0C6FFF;
+    color: white;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+/* Customer filter box */
+.filter-box {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr auto;
+    gap: 14px;
+    align-items: end;
+    margin-bottom: 18px;
+    padding: 18px;
+    border-radius: 20px;
+    background: #f8fbff;
+    border: 1px solid #e5eaf2;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.filter-group label {
+    color: #475569;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.filter-group input,
+.filter-group select {
+    height: 44px;
+    padding: 0 13px;
+    border: 1px solid #dbe3ef;
+    border-radius: 14px;
+    outline: none;
+    background: #ffffff;
+    color: #0f172a;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+    border-color: #0c6fff;
+    box-shadow: 0 0 0 4px rgba(12, 111, 255, 0.08);
+}
+
+.filter-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-filter,
+.btn-reset {
+    height: 44px;
+    padding: 0 16px;
+    border-radius: 14px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 950;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-filter {
+    background: #0c6fff;
+    color: #ffffff;
+}
+
+.btn-reset {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+/* Table info */
+.table-info {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 14px;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.pagination a,
+.pagination-dots {
+    min-width: 42px;
+    height: 42px;
+    padding: 0 14px;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #0f172a;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 900;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e5eaf2;
+}
+
+.pagination a {
+    transition: 0.2s ease;
+}
+
+.pagination a:hover {
+    background: #eef4ff;
+    color: #0c6fff;
+}
+
+.pagination a.active {
+    background: #0c6fff;
+    color: #ffffff;
+    border-color: #0c6fff;
+    box-shadow: 0 10px 20px rgba(12, 111, 255, 0.22);
+}
+
+.pagination-dots {
+    border: none;
+    background: transparent;
+    color: #94a3b8;
+}
+
+@media (max-width: 900px) {
+    .filter-box {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-actions {
+        flex-direction: column;
+    }
+
+    .btn-filter,
+    .btn-reset {
+        width: 100%;
+    }
+}
