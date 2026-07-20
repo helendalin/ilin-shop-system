@@ -1155,3 +1155,55 @@
         font-size: 22px;
     }
 }
+
+.cancel-order-form {
+    display: inline-flex;
+}
+
+.cancel-order-btn {
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 14px;
+    border: none;
+    background: #fef2f2;
+    color: #dc2626;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 950;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.2s ease;
+}
+
+.cancel-order-btn:hover {
+    background: #dc2626;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.order-alert {
+    max-width: 1180px;
+    margin: 18px auto 0;
+    padding: 15px 18px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.order-alert-success {
+    background: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+}
+
+.order-alert-error {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}

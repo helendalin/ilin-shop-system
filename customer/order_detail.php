@@ -197,6 +197,17 @@ $totalAmount = floatval($order['total_amount'] ?? 0);
             <p><?= htmlspecialchars($orderDate, ENT_QUOTES, 'UTF-8'); ?></p>
         </div>
 
+        <!-- <div class="detail-header-actions">
+            <a href="<?= BASE_URL ?>/customer/order_history.php" class="back-account-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                ກັບໄປປະຫວັດ
+            </a>
+
+            <a href="<?= BASE_URL ?>/customer/products.php" class="shop-now-btn">
+                <i class="fa-solid fa-bag-shopping"></i>
+                ຊື້ສິນຄ້າຕໍ່
+            </a>
+        </div> -->
         <div class="detail-header-actions">
             <a href="<?= BASE_URL ?>/customer/order_history.php" class="back-account-btn">
                 <i class="fa-solid fa-arrow-left"></i>
@@ -207,9 +218,44 @@ $totalAmount = floatval($order['total_amount'] ?? 0);
                 <i class="fa-solid fa-bag-shopping"></i>
                 ຊື້ສິນຄ້າຕໍ່
             </a>
+
+            <?php
+                $canCancelOrder = 
+                    (($order['status'] ?? '') === 'pending') &&
+                    !in_array(($order['payment_status'] ?? ''), ['paid', 'verified'], true);
+            ?>
+
+            <?php if ($canCancelOrder): ?>
+                <form
+                    action="<?= BASE_URL ?>/actions/customer/cancel_order_action.php"
+                    method="POST"
+                    class="cancel-order-form"
+                    onsubmit="return confirm('ທ່ານຕ້ອງການຍົກເລີກອໍເດີນີ້ບໍ?');"
+                >
+                    <input type="hidden" name="sale_id" value="<?= intval($order['sale_id']); ?>">
+
+                    <button type="submit" class="cancel-order-btn">
+                        <i class="fa-solid fa-ban"></i>
+                        ຍົກເລີກອໍເດີ
+                    </button>
+                </form>
+            <?php endif; ?>
         </div>
     </section>
 
+    <?php if (isset($_GET['success']) && $_GET['success'] === 'cancelled'): ?>
+    <div class="order-alert order-alert-success">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>ຍົກເລີກອໍເດີສຳເລັດແລ້ວ</span>
+    </div>
+<?php endif; ?>
+
+<?php if (isset($_GET['error']) && $_GET['error'] === 'cannot_cancel'): ?>
+    <div class="order-alert order-alert-error">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span>ອໍເດີນີ້ບໍ່ສາມາດຍົກເລີກໄດ້ ເພາະລະບົບກຳລັງດຳເນີນການ ຫຼື ຊຳລະແລ້ວ</span>
+    </div>
+<?php endif; ?>
     <section class="detail-layout">
 
         <div class="detail-left">

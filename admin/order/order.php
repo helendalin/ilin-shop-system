@@ -29,12 +29,12 @@ function paginationUrl($page) {
 }
 
 /* Check if tb_order has status column */
-$hasStatusColumn = false;
-$statusCheck = $conn->query("SHOW COLUMNS FROM tb_order LIKE 'status'");
+// $hasStatusColumn = false;
+// $statusCheck = $conn->query("SHOW COLUMNS FROM tb_order LIKE 'status'");
 
-if ($statusCheck && $statusCheck->num_rows > 0) {
-    $hasStatusColumn = true;
-}
+// if ($statusCheck && $statusCheck->num_rows > 0) {
+//     $hasStatusColumn = true;
+// }
 
 /* Pagination */
 $perPage = 7;
@@ -53,9 +53,9 @@ $toDate = trim($_GET['to_date'] ?? '');
 
 $allowedStatuses = ['pending', 'ordered', 'received', 'completed', 'cancelled'];
 
-if (!$hasStatusColumn || !in_array($status, $allowedStatuses, true)) {
-    $status = '';
-}
+// if (!$hasStatusColumn || !in_array($status, $allowedStatuses, true)) {
+//     $status = '';
+// }
 
 if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $fromDate)) {
     $fromDate = '';
@@ -101,11 +101,11 @@ if ($supplierId > 0) {
     $types .= 'i';
 }
 
-if ($hasStatusColumn && $status !== '') {
-    $where[] = "o.status = ?";
-    $params[] = $status;
-    $types .= 's';
-}
+// if ($hasStatusColumn && $status !== '') {
+//     $where[] = "o.status = ?";
+//     $params[] = $status;
+//     $types .= 's';
+// }
 
 if ($fromDate !== '') {
     $where[] = "DATE(o.order_date) >= ?";
@@ -257,7 +257,7 @@ $endItem = min($offset + $perPage, $totalRows);
                     </select>
                 </div>
 
-                <?php if ($hasStatusColumn): ?>
+                <!-- <?php if ($hasStatusColumn): ?>
                     <div class="filter-group">
                         <label>ສະຖານະ</label>
                         <select name="status">
@@ -269,7 +269,7 @@ $endItem = min($offset + $perPage, $totalRows);
                             <option value="cancelled" <?= ($status === 'cancelled') ? 'selected' : ''; ?>>cancelled</option>
                         </select>
                     </div>
-                <?php endif; ?>
+                <?php endif; ?> -->
 
                 <div class="filter-group">
                     <label>ຈາກວັນທີ</label>
@@ -307,9 +307,9 @@ $endItem = min($offset + $perPage, $totalRows);
                         <th>ພະນັກງານ</th>
                         <th>ວັນທີ</th>
 
-                        <?php if ($hasStatusColumn): ?>
+                        <!-- <?php if ($hasStatusColumn): ?>
                             <th>ສະຖານະ</th>
-                        <?php endif; ?>
+                        <?php endif; ?> -->
 
                         <th>ຈັດການ</th>
                     </tr>
@@ -335,13 +335,13 @@ $endItem = min($offset + $perPage, $totalRows);
                                     <?= h($row['order_date']); ?>
                                 </td>
 
-                                <?php if ($hasStatusColumn): ?>
+                                <!-- <?php if ($hasStatusColumn): ?>
                                     <td>
                                         <span class="status-badge status-<?= h($row['status'] ?? 'pending'); ?>">
                                             <?= h($row['status'] ?? 'pending'); ?>
                                         </span>
                                     </td>
-                                <?php endif; ?>
+                                <?php endif; ?> -->
 
                                 <td>
                                     <a class="btn-view" href="order_detail.php?id=<?= intval($row['order_id']); ?>">

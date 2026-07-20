@@ -233,7 +233,7 @@ $endItem = min($offset + $perPage, $totalRows);
                     >
                 </div>
 
-                <div class="filter-group">
+                <!-- <div class="filter-group">
                     <label>ສະຖານະອໍເດີ</label>
                     <select name="status">
                         <option value="">ທັງໝົດ</option>
@@ -243,9 +243,9 @@ $endItem = min($offset + $perPage, $totalRows);
                         <option value="completed" <?= ($status === 'completed') ? 'selected' : ''; ?>>completed</option>
                         <option value="cancelled" <?= ($status === 'cancelled') ? 'selected' : ''; ?>>cancelled</option>
                     </select>
-                </div>
+                </div> -->
 
-                <div class="filter-group">
+                <!-- <div class="filter-group">
                     <label>ສະຖານະເງິນ</label>
                     <select name="payment_status">
                         <option value="">ທັງໝົດ</option>
@@ -256,7 +256,7 @@ $endItem = min($offset + $perPage, $totalRows);
                         <option value="failed" <?= ($paymentStatus === 'failed') ? 'selected' : ''; ?>>failed</option>
                         <option value="refunded" <?= ($paymentStatus === 'refunded') ? 'selected' : ''; ?>>refunded</option>
                     </select>
-                </div>
+                </div> -->
 
                 <div class="filter-group">
                     <label>ຈາກວັນທີ</label>
@@ -294,11 +294,11 @@ $endItem = min($offset + $perPage, $totalRows);
                         <th>ເບີໂທ</th>
                         <th>ວັນທີ</th>
                         <th>ລວມເງິນ</th>
-                        <th>ຈັດສົ່ງ</th>
+                        <!-- <th>ຈັດສົ່ງ</th> -->
                         <th>ຊຳລະ</th>
-                        <th>ສະຖານະເງິນ</th>
-                        <th>ສະຖານະອໍເດີ</th>
-                        <th>ສະລິບ</th>
+                        <!-- <th>ສະຖານະເງິນ</th> -->
+                        <!-- <th>ສະຖານະອໍເດີ</th> -->
+                        <!-- <th>ສະລິບ</th> -->
                         <th>ຈັດການ</th>
                     </tr>
                 </thead>
@@ -319,29 +319,29 @@ $endItem = min($offset + $perPage, $totalRows);
 
                                 <td><?= number_format($row['total_amount']); ?> ₭</td>
 
-                                <td><?= h($row['delivery_method'] ?? '-'); ?></td>
+                                <!-- <td><?= h($row['delivery_method'] ?? '-'); ?></td> -->
 
                                 <td><?= h($row['payment_method'] ?? '-'); ?></td>
 
-                                <td>
+                                <!-- <td>
                                     <span class="status-badge status-<?= h($row['payment_status'] ?? 'pending'); ?>">
                                         <?= h($row['payment_status'] ?? 'pending'); ?>
                                     </span>
-                                </td>
+                                </td> -->
 
-                                <td>
+                                <!-- <td>
                                     <span class="status-badge status-<?= h($row['status'] ?? 'pending'); ?>">
                                         <?= h($row['status'] ?? 'pending'); ?>
                                     </span>
-                                </td>
+                                </td> -->
 
-                                <td>
+                                <!-- <td>
                                     <?php if (!empty($row['payment_slip'])): ?>
                                         <span class="slip-yes">ມີ</span>
                                     <?php else: ?>
                                         <span class="slip-no">ບໍ່ມີ</span>
                                     <?php endif; ?>
-                                </td>
+                                </td> -->
 
                                 <td>
                                     <a class="btn-view" href="sale_detail.php?id=<?= intval($row['sale_id']); ?>">ເບິ່ງ</a>
